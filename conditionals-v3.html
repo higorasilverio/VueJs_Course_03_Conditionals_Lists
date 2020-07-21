@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <template v-if="active">
+        <p>User active: {{ name }}</p>
+        <p>Profile: Admin</p>
+    </template>
+    <p v-else-if="anonymous">Navigating as anonymous</p>
+    <p v-else>None user active</p>
+    <button @click="active = !active"> {{ active ? 'Logoff' : 'Login' }} </button>
+    <input type="checkbox" v-model="anonymous">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Mary',
+            active: false,
+            anonymous: false
+        }
+    })
+</script>

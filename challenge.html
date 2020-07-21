@@ -1,0 +1,67 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+  ul {
+    list-style: none;
+  }
+</style>
+
+<div id='ch'>
+  <!-- 1) Press the button to alternate between two different paragraphs exhibitions. 
+    Use both v-if and v-show, inspecting the elements to notice the difference -->
+  <h2>#01</h2>
+  <div>
+    <button @click="active = !active">Alternate</button>
+    <p v-if="active">You want to se me ...</p>
+    <p v-else>...or me</p>
+    <p v-show='active'>You want to se me ...</p>
+    <p v-show='!active'>...or me</p>
+  </div>
+
+  <!-- 2) Show in a <ul> an element array of your choice.
+    Print each index's element also -->
+  <h2>#02</h2>
+  <ul>
+    <li v-for="(cellphone, index) in cellphones"> {{ index + 1 }}) {{ cellphone }}</li>
+  </ul>
+  
+  <!-- 3) Print all key-value pair from the following object:
+    {
+			title: 'Lord of the Rings',
+			author: 'J.R.R. Tolkiens',
+			volume: '3'
+		}
+    Print also its index for each item. -->
+  <h2>#03</h2>
+  <ul>
+    <li v-for="(value, key, index) in book"> 
+      {{ key }} = {{ value }} - {{ index + 1 }}
+   </li>
+  </ul>
+  
+  <!-- 4) Print the following object (only the values) and
+    also create a nested loop for the array:
+    {
+			id: 10,
+			name: 'Maria',
+			grades: [7.67, 8.33, 6.98, 9.21]
+		}
+    (hint: use v-for and v-if in resolution) -->
+  <h2>#04</h2>
+  <ul>
+    <li v-for="value in student"> 
+      <template v-if="!Array.isArray(value)">
+        {{ value }}
+      </template>
+      <template v-else>
+        Grades:
+        <ul>
+          <li v-for="grade in value"> {{ grade }} </li>
+        </ul>
+      </template>
+   </li>
+  </ul>
+</div>
+
+<script src="app.js"></script>
+

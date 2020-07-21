@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <p v-if="active">User active: {{ name }}</p>
+    <p v-else>None user active</p>
+    <button @click="active = !active"> {{ active ? 'Logoff' : 'Login' }} </button>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Mary',
+            active: false
+        }
+    })
+</script>
